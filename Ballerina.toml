@@ -1,0 +1,11 @@
+[project]
+org-name= "boostfiware"
+version= "0.1.0"
+license = ["Apache-2.0"]
+authors = ["gbo"]
+repository = "https://github.com/boostfiware/fiware-eids-cim-rest-connector"
+keywords = ["FIWARE", "IDSA", "Boost4.0"]
+
+
+# Version dependencies of the imported modules
+[dependencies]
