@@ -1,3 +1,6 @@
 [submodule "deprecated_Version1"]
 	path = deprecated_Version1
 	url = https://github.com/orchestracities/boost
+[submodule "UPM_UsageControl"]
+	path = UPM_UsageControl
+	url = https://github.com/ging/fiware-usage-control
