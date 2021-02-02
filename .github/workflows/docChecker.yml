@@ -1,0 +1,31 @@
+name: docChecker
+
+on: [push]
+
+jobs:
+  check-urls:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Actions Repository
+      uses: actions/checkout@v2
+    - name: URLChecker
+      uses: urlstechie/urlchecker-action@master
+      with:
+        # A comma-separated list of file types to cover in the URL checks
+        file_types: .md
+        # Choose whether to include file with no URLs in the prints.
+        print_all: false
+        # The timeout seconds to provide to requests, defaults to 5 seconds
+        timeout: 5
+    - name: Upload Docs to Wiki
+      uses: docker://decathlon/wiki-page-creator-action:latest
+      env:
+        ACTION_MAIL: gernot.boege@fiware.org
+        ACTION_NAME: gboege
+        GH_PAT: ${{ secrets.GH_PAT }}
+        MD_FOLDER: docs
+        OWNER: boostfiware
+        REPO_NAME: fiware-eids-cim-rest-connector
+        SKIP_MD: README.md
+        WIKI_PUSH_MESSAGE: update to wiki
+        TRANSLATE_UNDERSCORE_TO_SPACE: 1
